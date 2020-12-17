@@ -1,0 +1,92 @@
++*In[8]:*+
+[source, ipython3]
+----
+!pip install emails
+----
+
+
++*Out[8]:*+
+----
+Requirement already satisfied: emails in c:\users\hp\anaconda3\lib\site-packages (0.6)
+Requirement already satisfied: python-dateutil in c:\users\hp\anaconda3\lib\site-packages (from emails) (2.8.1)
+Requirement already satisfied: requests in c:\users\hp\anaconda3\lib\site-packages (from emails) (2.24.0)
+Requirement already satisfied: premailer in c:\users\hp\anaconda3\lib\site-packages (from emails) (3.7.0)
+Requirement already satisfied: cssutils in c:\users\hp\anaconda3\lib\site-packages (from emails) (1.0.2)
+Requirement already satisfied: chardet in c:\users\hp\anaconda3\lib\site-packages (from emails) (3.0.4)
+Requirement already satisfied: lxml in c:\users\hp\anaconda3\lib\site-packages (from emails) (4.6.1)
+Requirement already satisfied: six>=1.5 in c:\users\hp\anaconda3\lib\site-packages (from python-dateutil->emails) (1.15.0)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\hp\anaconda3\lib\site-packages (from requests->emails) (2020.6.20)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in c:\users\hp\anaconda3\lib\site-packages (from requests->emails) (1.25.11)
+Requirement already satisfied: idna<3,>=2.5 in c:\users\hp\anaconda3\lib\site-packages (from requests->emails) (2.10)
+Requirement already satisfied: cssselect in c:\users\hp\anaconda3\lib\site-packages (from premailer->emails) (1.1.0)
+Requirement already satisfied: cachetools in c:\users\hp\anaconda3\lib\site-packages (from premailer->emails) (4.2.0)
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+# user -> sauravdeb.peacocksolar@gmail.com
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+# password -> Saurav01@TU
+----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+import emails
+----
+
+
++*In[38]:*+
+[source, ipython3]
+----
+html_text ='''<p>Hello P..a</p>
+<p>Greetings from PS</p>
+<p>We are grateful to inform you that we have shortlisted for the post of CSE, looking forward for your positive response.</p>
+<p>All incentives and packages remain the same as discussed over the call.</p>
+<p>Regards</p>
+<p>HRG PS&nbsp;</p>'''
+
+message = emails.html(html= html_text,
+                          subject="Status regarding your Application",
+                          mail_from=('TUST', 'sauravdeb.peacocksolar@gmail.com'))
+----
+
+
++*In[39]:*+
+[source, ipython3]
+----
+python_mail =message.send(to='piya.deb127@gmail.com', 
+                          smtp={'host': 'smtp.gmail.com', 
+                                'timeout': 5,
+                                'port': 587,
+                               'user':'sauravdeb.peacocksolar@gmail.com',
+                               'password' :'Saurav01@TU',
+                               'tls':True})
+
+----
+
+
++*In[40]:*+
+[source, ipython3]
+----
+python_mail.status_code
+----
+
+
++*Out[40]:*+
+----250----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
